@@ -1,0 +1,33 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe 生成活动文件",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-Ofast",
+                // "-std=c++11",
+                // "-I",
+                // "C:\\Program Files\\Python310\\include",
+                // "-L",
+                // "C:\\Program Files\\Python310\\libs",
+                // "-lpython310",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-march=native"
+             ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "编译器: C:\\msys64\\mingw64\\bin\\g++.exe"
+        }
+    ],
+    "version": "2.0.0"
+}

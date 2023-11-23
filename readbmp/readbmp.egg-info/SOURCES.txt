@@ -1,0 +1,7 @@
+setup.py
+readbmp/kjcolor.py
+readbmp.egg-info/PKG-INFO
+readbmp.egg-info/SOURCES.txt
+readbmp.egg-info/dependency_links.txt
+readbmp.egg-info/not-zip-safe
+readbmp.egg-info/top_level.txt

@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Win64",        
+            "includePath": [
+                "${workspaceFolder}",
+                "C:\\Program Files\\Python310\\include"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceRoot}",
+                    "C:\\Program Files\\Python310\\libs"  /*此处设置为库的lib目录下*/
+                ]
+            },
+            "defines": [],
+            "compilerPath": "C:\\msys64\\mingw64\\bin\\g++.exe",  
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "intelliSenseMode": "windows-gcc-x64" 
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container body-content">
+        <div class="parking-example panel panel-primary">
+            <div class="panel-heading panel-head">停车记录</div>
+            <div class="panel-body">
+                <form action="search" method="post">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <a id="createModal" href="/create" class="btn btn-success">
+                                    <div><span class="glyphicon glyphicon-plus"></span> 车辆入库</div>
+                                </a>
+                                <a id="UpdateModal" class="btn btn-primary">
+                                    <div><span class="glyphicon glyphicon-check"></span> 车辆出库</div>
+                                </a>
+                            </div>
+                            <div class="col-md-5 pull-right">
+                                <div class="input-group">
+                                    <input class="form-control" type="text" placeholder="请输入车牌" id="car_plate"
+                                           name="car_plate">
+                                    <span class="input-group-btn">
+							<button class="btn btn-default" type="submit"><span
+                                    class="glyphicon glyphicon-search"></span></button>
+						</span>
+                                    <span class="input-group-btn">
+							<a class="btn btn-default" href="/"><span class="glyphicon glyphicon-home"></span></a>
+						</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="col-md-12" style='overflow:scroll; overflow-x: auto; overflow-y: auto; height:400px;'>
+                    <table class="table table-hover" id="tblCars">
+                        <thead>
+                        <tr>
+                            <th>
+                                选择
+                            </th>
+                            <th>
+                                流水号
+                            </th>
+                            <th>
+                                车牌
+                            </th>
+                            <th>
+                                入场时间
+                            </th>
+                            <th>
+                                出场时间
+                            </th>
+                            <th>
+                                停车费
+                            </th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for car in cars %}
+                            <tr>
+                                <td>
+                                    <input type="radio" name="choice" value={{ car['id'] }}>
+                                </td>
+                                <td>
+                                    {{ car['id'] }}
+                                </td>
+                                <td>
+                                    {{ car['car_plate'] }}
+                                </td>
+                                <td>
+                                    {{ car['checkin_time'] }}
+                                </td>
+                                <td>
+                                    {{ car['checkout_time'] }}
+                                </td>
+                                <td>
+                                    {{ car['parking_fee'] }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block script %}
+    <script>
+        $(document).ready(function () {
+            $('#UpdateModal').click(function () {
+                if (typeof $("input[name='choice']:checked").val() == "undefined")
+                    alert("请选择要出库的车辆！")
+                else {
+                    //alert($("input[name='choice']:checked").val())
+                    $(location).attr('href', "/" + $("input[name='choice']:checked").val() + "/update")
+                }
+            })
+        })
+
+        $("#tblCars tr").click(function () {
+            /*当单击表格行时,把单选按钮设为选中状态*/
+            $(this).find("input[type='radio']").prop("checked", true);
+            $("#tblCars").find('tr').removeClass("warning")
+            $(this).addClass("warning")
+        })
+
+    </script>
+{% endblock %}
+	
