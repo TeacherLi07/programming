@@ -68,5 +68,6 @@
     },
     "C_Cpp.errorSquiggles": "enabled",
     "editor.tabCompletion": "on",
-    "python.analysis.typeCheckingMode": "off"
+    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.autoImportCompletions": true
 }
