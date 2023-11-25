@@ -6,7 +6,7 @@
             "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
-                "-Ofast",
+                "-O2",
                 // "-std=c++11",
                 // "-I",
                 // "C:\\Program Files\\Python310\\include",
@@ -17,7 +17,7 @@
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "-march=native"
+                // "-march=native"
              ],
             "options": {
                 "cwd": "${fileDirname}"
